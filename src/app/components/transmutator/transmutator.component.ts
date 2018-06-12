@@ -18,24 +18,26 @@ export class TransmutatorComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.transmutatedPairs = this.helper.readFromStorage();
+        debugger;
+        this.transmutatedPairs = this.helper.getStoredValues();
     }
 
     public onSubmit(): void {
         const input: string = this.input;
-        const newPair: TransmutatedPair = this.toTransmutatedPair(input);
-        this.add(newPair);
+        this.toTransmutatedPair(input);
         this.input = '';
     }
 
-    private add(value: TransmutatedPair) {
+    private _addPair(value: TransmutatedPair) {
         this.transmutatedPairs = [...this.transmutatedPairs, value];
+        this.helper.persistValues(this.transmutatedPairs);
     }
 
-    private toTransmutatedPair(input: string): TransmutatedPair {
+    private toTransmutatedPair(input: string) {
         try {
             const num = this.helper.parseInput(input);
-            return this.trasnmutator.transmutate(num);
+            const pair = this.trasnmutator.transmutate(num);
+            this._addPair(pair);
         } catch (e) {
             // ToDo: Alert Component.
         }
