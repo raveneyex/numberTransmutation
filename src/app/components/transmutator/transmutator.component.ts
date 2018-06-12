@@ -27,6 +27,11 @@ export class TransmutatorComponent implements OnInit {
         this.input = '';
     }
 
+    public clear(): void {
+        this.transmutatedPairs = [];
+        this.helper.clearStorage();
+    }
+
     private _addPair(value: TransmutatedPair) {
         this.transmutatedPairs = [...this.transmutatedPairs, value];
         this.helper.persistValues(this.transmutatedPairs);

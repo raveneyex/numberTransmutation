@@ -2,3 +2,10 @@
     white-space: pre-wrap;
     max-width: 550px;
 }
+
+.annex-action {
+    margin-top: 6px;
+}
+.annex-action button {
+    float: right;
+}

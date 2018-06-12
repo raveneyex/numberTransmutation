@@ -78,6 +78,15 @@ export class HelperService {
         this._saveToStorage(value, this.CONFIG_STORAGE_KEY);
     }
 
+    public clearStorage() {
+        try {
+            localStorage.clear();
+        } catch (e) {
+            // Intentionally bleeding this to the console and not to the UI
+            console.error(e);
+        }
+    }
+
     private _saveToStorage(values: any, key: string) {
         try {
             localStorage.setItem(key, JSON.stringify(values));
