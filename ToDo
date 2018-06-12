@@ -1,7 +1,5 @@
 ToDo:
 
-0. Fix Logic
-1. Add Unit Tests for Logic
-2. Add Alert Component for Showing Input errors
-3. Investigate into RxJS for Forms
-4. Add ReadMe with instructions
+1. Add Documentation
+2. Add ReadMe
+3. Add specs for Helper Service
