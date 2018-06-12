@@ -2,11 +2,17 @@
     <div class="mdl-cell mdl-cell--4-col"></div>
     <div class="mdl-cell mdl-cell--4-col">
         <form style="margin-bottom: 5px" (submit)="onSubmit()">
-            <input name="limit" 
-                type="text"
-                [(ngModel)]="input" 
-                class="mdl-textfield__input"
-                placeholder="Enter the Number Limit">
+            <div class="mdl-textfield mdl-js-textfield" style="width: 100%;"
+                [ngClass]="{'is-invalid': !!errorMessage}">
+                <input name="limit" 
+                    type="text"
+                    [(ngModel)]="input" 
+                    class="mdl-textfield__input"
+                    placeholder="Enter the Number Limit"
+                    pattern="[0-9]*">
+                <span *ngIf="!errorMessage" class="mdl-textfield__error">Only digits are allowed</span>
+                <span *ngIf="!!errorMessage" class="mdl-textfield__error">{{errorMessage}}</span>
+            </div>
         </form>
         <table class="mdl-data-table mdl-shadow--2dp mdl-data-table--selectable" style="width: 100%">
             <tbody>

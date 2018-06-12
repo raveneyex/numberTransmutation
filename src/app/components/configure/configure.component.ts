@@ -13,6 +13,7 @@ export class ConfigureComponent {
     private input: string;
     private currentLimit: number;
     private systemLimit: number;
+    private errorMessage: string;
 
     constructor(private helper: HelperService) {
         this.systemLimit = Number.MAX_SAFE_INTEGER;
@@ -28,12 +29,22 @@ export class ConfigureComponent {
             this.currentLimit = this.helper.limit;
             this.input = '';
         } catch (e) {
-            // ToDo: Alert Component
+            this.input = '';
+            this._setError(e);
+            setTimeout(this._cleanError.bind(this), 5000);
         }
     }
 
     public onRemove() {
         this.helper.limit = null;
         this.currentLimit = this.helper.limit;
+    }
+
+    private _setError(error) {
+        this.errorMessage = error;
+    }
+
+    private _cleanError() {
+        delete this.errorMessage;
     }
 }
