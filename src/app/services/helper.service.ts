@@ -70,11 +70,11 @@ export class HelperService {
         }
     }
 
-    public persistValues(values:TransmutatedPair[]): void {
+    public persistValues(values: TransmutatedPair[]): void {
         this._saveToStorage(values, this.VALUES_STORAGE_KEY);
     }
 
-    public persistConfig(value:number): void {
+    public persistConfig(value: number): void {
         this._saveToStorage(value, this.CONFIG_STORAGE_KEY);
     }
 
