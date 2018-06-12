@@ -10,7 +10,7 @@ import TransmutatedPair from '../../types/TransmutatedPair';
     providers: [TransmutationService, HelperService]
 })
 export class TransmutatorComponent implements OnInit {
-
+    private errorMessage: string;
     private transmutatedPairs: TransmutatedPair[];
     private input: string;
 
@@ -18,7 +18,6 @@ export class TransmutatorComponent implements OnInit {
     }
 
     public ngOnInit() {
-        debugger;
         this.transmutatedPairs = this.helper.getStoredValues();
     }
 
@@ -39,8 +38,17 @@ export class TransmutatorComponent implements OnInit {
             const pair = this.trasnmutator.transmutate(num);
             this._addPair(pair);
         } catch (e) {
-            // ToDo: Alert Component.
+            this._setError(e);
+            setTimeout(this._cleanError.bind(this), 5000);
         }
+    }
+
+    private _setError(error) {
+        this.errorMessage = error;
+    }
+
+    private _cleanError() {
+        delete this.errorMessage;
     }
 
 }
