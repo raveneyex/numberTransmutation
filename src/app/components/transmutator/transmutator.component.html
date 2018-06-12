@@ -9,7 +9,7 @@
                     [(ngModel)]="input" 
                     class="mdl-textfield__input"
                     placeholder="Enter the Number to Transmutate and press Enter"
-                    pattern="[0-9]*">
+                    pattern="(-)+[0-9]*">
                 <span *ngIf="!errorMessage" class="mdl-textfield__error">Only digits are allowed</span>
                 <span *ngIf="!!errorMessage" class="mdl-textfield__error">{{errorMessage}}</span>
             </div>
