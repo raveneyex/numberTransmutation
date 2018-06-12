@@ -17,9 +17,6 @@ export class HelperService {
     }
 
     set limit(value: number) {
-        if (value > Number.MAX_SAFE_INTEGER) {
-            throw new Error('Cannot save ')
-        }
         if (!value) {
             limit = null;
         } else {
@@ -42,7 +39,7 @@ export class HelperService {
             throw new Error('Input must be a number');
         }
         if (!Number.isSafeInteger(num)) {
-            throw new Error('The entered number cannot be safely stored.');
+            throw new Error('Entered number cannot exceed the System Limit');
         }
 
         if (this.limit !== null && this.limit !== undefined) {
