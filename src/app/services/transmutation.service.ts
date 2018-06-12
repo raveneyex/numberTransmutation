@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import TransmutatedPair from '../types/TransmutatedPair';
 
-let limit;
-
 const TOKENS = {
     0: 'zero',
     1: 'one',
@@ -50,19 +48,6 @@ const MAGNITUDES = [100, 1000, 1000000, 1000000000, 1000000000000, 1000000000000
 
 @Injectable()
 export class TransmutationService {
-    get limit(): number {
-        return (limit !== null && limit !== undefined)
-            ? limit
-            : Number.MAX_SAFE_INTEGER;
-    }
-
-    set limit(value: number) {
-        if (!value) {
-            limit = null;
-        } else {
-            limit = Math.abs(value);
-        }
-    }
 
     public transmutate(input: number): TransmutatedPair {
         debugger;
@@ -82,7 +67,8 @@ export class TransmutationService {
             debugger;
             words = [...words, ...values];
         }
-        return words.join(" ");
+        debugger;
+        return words.join(' ');
     }
 
     private _lessThan100(number: number, words = []): string {
@@ -104,7 +90,6 @@ export class TransmutationService {
 
     private _moreThan100(number: number, words = []): string[] {
         for (let i = 1; i <= MAGNITUDES.length; i += 1) {
-            debugger;
             // Note: intentionally skipping first magnitude.
             const MAGNITUDE = MAGNITUDES[i];
             const DIVIDER = MAGNITUDES[i - 1];
