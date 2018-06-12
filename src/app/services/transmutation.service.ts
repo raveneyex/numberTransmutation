@@ -51,13 +51,11 @@ const MAGNITUDES = [100, 1000, 1000000, 1000000000, 1000000000000, 1000000000000
 export class TransmutationService {
 
     public transmutate(input: number): TransmutatedPair {
-        debugger;
         const words = this._toWords(input);
         return { num: input, words };
     }
 
     private _toWords(number: number, words = []) {
-        debugger;
         if (number < 100) {
             const value = this._lessThan100(number);
             words.push(value);
@@ -65,10 +63,8 @@ export class TransmutationService {
             words.push('one hundred');
         } else if (number > 100) {
             const values = this._moreThan100(number);
-            debugger;
             words = [...words, ...values];
         }
-        debugger;
         return words.join(' ');
     }
 
@@ -81,9 +77,11 @@ export class TransmutationService {
         if (number <= 20) {
             words.push(TOKENS[number]);
         } else if (number < 100) {
-            const reminder = number % 10;
-            words.push(TOKENS[number - reminder]);
-            words.push(`-${TOKENS[reminder]}`);
+            const remainder = number % 10;
+            words.push(TOKENS[number - remainder]);
+            if (remainder) {
+                words.push(`-${TOKENS[remainder]}`);
+            }
         }
 
         return words.join('');
