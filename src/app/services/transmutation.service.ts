@@ -42,7 +42,7 @@ const TOKENS = {
      * Here to showcase how the algorithm can be expanded beyond the system limit.
      */
     1000000000000000000000: 'sixtillion',
-    MINUS: 'Negative'
+    MINUS: 'Negative '
 };
 
 const MAGNITUDES = [100, 1000, 1000000, 1000000000, 1000000000000, 1000000000000000, 1000000000000000000];
@@ -56,6 +56,10 @@ export class TransmutationService {
     }
 
     private _toWords(number: number, words = []) {
+        if (number > Number.MAX_SAFE_INTEGER) {
+            throw new Error('Entered number cannot exceed the System Limit');
+        }
+
         if (number < 100) {
             const value = this._lessThan100(number);
             words.push(value);
