@@ -36,15 +36,16 @@ const TOKENS = {
     1000000000: 'billion',
     1000000000000: 'trillion',
     1000000000000000: 'quatrillion',
+    1000000000000000000: 'quintillion',
     /**
-     * Quintillion cannot be safely represented in JS.
+     * From this point onwards integers are NOT safely stored in JS.
      * Here to showcase how the algorithm can be expanded beyond the system limit.
      */
-    QUINTILLION: 'quintillion',
+    1000000000000000000000: 'sixtillion',
     MINUS: 'Negative'
 };
 
-const MAGNITUDES = [100, 1000, 1000000, 1000000000, 1000000000000, 1000000000000000];
+const MAGNITUDES = [100, 1000, 1000000, 1000000000, 1000000000000, 1000000000000000, 1000000000000000000];
 
 @Injectable()
 export class TransmutationService {
