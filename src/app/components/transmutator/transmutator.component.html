@@ -8,11 +8,11 @@
                 class="mdl-textfield__input"
                 placeholder="Enter the Number to Transmutate">
         </form>
-        <table class="mdl-data-table mdl-shadow--2dp mdl-data-table--selectable" style="width: 100%">
+        <table class="mdl-data-table mdl-shadow--2dp mdl-data-table--selectable transmutation-table" style="width: 100%">
             <tbody>
                 <tr *ngFor="let pair of transmutatedPairs">
                     <td class="mdl-data-table__cell">{{pair.num}}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{{pair.words}}</td>
+                    <td class="mdl-data-table__cell--non-numeric transmutation-table__entry">{{pair.words}}</td>
                 </tr>
             </tbody>
         </table>
