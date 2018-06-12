@@ -19,7 +19,7 @@ export class HelperService {
         return num;
     }
 
-    saveToStorage(values: TransmutatedPair[]) {
+    public saveToStorage(values: TransmutatedPair[]) {
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(values));
         } catch(e) {
@@ -27,12 +27,22 @@ export class HelperService {
         }
     }
 
-    readFromStorage(): TransmutatedPair[] {
+    public readFromStorage(): TransmutatedPair[] {
+        this._initHardcodedData();
         try {
             return JSON.parse(localStorage.getItem(this.STORAGE_KEY));
         } catch (e) {
             console.error('Cannot read from localStorage', e);
             return [];
         }
+    }
+
+    private _initHardcodedData() {
+        const hardcoded = [
+            {num: 5, words: 'Five'},
+            {num: 127, words: 'One hundred and twenty-seven'},
+            {num: -123, words: 'Negative One hundred and tweny-three'}
+        ];
+        this.saveToStorage(hardcoded);
     }
 }
