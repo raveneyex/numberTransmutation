@@ -5,7 +5,6 @@ import { HelperService } from '../../services/helper.service';
 @Component({
     selector: 'app-configure',
     templateUrl: './configure.component.html',
-    styleUrls: ['./configure.component.css'],
     providers: [HelperService]
 
 })
