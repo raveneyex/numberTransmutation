@@ -102,6 +102,12 @@ describe('TransmutationService', () => {
             expect(serviceInstance.transmutate(999999999999999).words).toEqual('nine hundred and ninety-nine trillion nine hundred and ninety-nine billion nine hundred and ninety-nine million nine hundred and ninety-nine thousand nine hundred and ninety-nine');
         });
 
+        it('should transmutate numbers into words', () => {
+            expect(serviceInstance.transmutate(1200).words).toEqual('one thousand two hundred');
+            expect(serviceInstance.transmutate(230000).words).toEqual('two hundred and thirty thousand');
+            expect(serviceInstance.transmutate(34000).words).toEqual('thirty-four thousand');
+        });
+
         it('should reject any input superior to the system limit', () => {
             // Setup
             const huge = Number.MAX_SAFE_INTEGER + 1; // Warning: unstable operation

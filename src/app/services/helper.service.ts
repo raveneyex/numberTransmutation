@@ -46,7 +46,7 @@ export class HelperService {
      * Parses a user input into a number.
      * @param {string} input - The user input to parse
      * @return {number} The parsed user input
-     * @throws {Error} If input is NaN or an Unsafe Integer. 
+     * @throws {Error} If input is NaN or an Unsafe Integer.
      */
     public parseInput(input: string): number {
         const num = parseInt(input, 10);

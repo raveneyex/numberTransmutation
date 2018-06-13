@@ -1,6 +1,7 @@
 # NumberTransmutation
 
-A simple app that transmutates numbers into their representing words.
+A simple app that transmutates numbers into their representing words.Al
+Counting system based on `https://www.mathsisfun.com/numbers/counting-names-1000.html` (UK version)
 
 ## Requirements
 

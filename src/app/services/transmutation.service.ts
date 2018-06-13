@@ -46,11 +46,12 @@ const TOKENS = {
      * Here to showcase how the algorithm can be expanded beyond the system limit.
      */
     1000000000000000000000: 'sixtillion',
-    MINUS: 'Negative'
+    MINUS: 'Negative',
+    SIMPLE_HUNDRED: 'hundred'
 };
 /**
  * @private
- * The number magnitudes starting from hundreds. In order 
+ * The number magnitudes starting from hundreds. In order.
  */
 const MAGNITUDES = [100, 1000, 1000000, 1000000000, 1000000000000, 1000000000000000, 1000000000000000000];
 
@@ -165,8 +166,10 @@ export class TransmutationService {
             const DIVIDER = MAGNITUDES[i - 1];          // 2
 
             if (number < MAGNITUDE) {                   // Verify 1
-                const word = `${this._toWords(Math.floor(number / DIVIDER))} ${TOKENS[DIVIDER]}`; // 3, 4 & 5
                 const remainder = number % DIVIDER;     // 6
+                // NextLine: Special case for the 'hundred' magnitude to decide wether the conjuction and is needed or not.
+                const DIVIDER_TOKEN = DIVIDER === 100 && !remainder ? TOKENS.SIMPLE_HUNDRED : TOKENS[DIVIDER];
+                const word = `${this._toWords(Math.floor(number / DIVIDER))} ${DIVIDER_TOKEN}`; // 3, 4 & 5
                 words.push(word);
 
                 if (remainder) {                        // 7
