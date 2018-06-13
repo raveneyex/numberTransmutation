@@ -12,13 +12,13 @@ import { HelperService } from '../../services/helper.service';
 // Controller for the component. Implements the OnInit lifecycle hook
 export class ConfigureComponent implements OnInit {
     // User input
-    private input: string;
+    public input: string;
     // Current user-defined limit
-    private currentLimit: number;
+    public currentLimit: number;
     // System limit
-    private systemLimit: number;
+    public systemLimit: number;
     // View error message
-    private errorMessage: string;
+    public errorMessage: string;
 
     constructor(private helper: HelperService) { }
 

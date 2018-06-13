@@ -15,9 +15,9 @@ import TransmutatedPair from '../../types/TransmutatedPair';
  * Implements OnInit lifecycle hook.
  */
 export class TransmutatorComponent implements OnInit {
-    private errorMessage: string;
-    private transmutatedPairs: TransmutatedPair[];
-    private input: string;
+    public errorMessage: string;
+    public transmutatedPairs: TransmutatedPair[];
+    public input: string;
 
     constructor(private helper: HelperService, private transmutator: TransmutationService) { }
 
