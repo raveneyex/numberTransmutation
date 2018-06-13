@@ -74,6 +74,7 @@ describe('TransmutationService', () => {
                 .toEqual('nine quatrillion seven trillion one hundred and ninety-nine billion two hundred and fifty-four million seven hundred and forty thousand nine hundred and ninety-one');
             expect(serviceInstance.transmutate(0).words).toEqual('zero');
             expect(serviceInstance.transmutate(-45).words).toEqual('Negative forty-five');
+            expect(serviceInstance.transmutate(-999).words).toEqual('Negative nine hundred and ninety-nine');
         });
 
         it('should transmutate numbers into words: COMPLEX CASES', () => {

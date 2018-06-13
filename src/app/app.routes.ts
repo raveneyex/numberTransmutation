@@ -2,13 +2,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConfigureComponent } from './components/configure/configure.component';
 import { TransmutatorComponent } from './components/transmutator/transmutator.component';
 
+// Declare App Routes
 const routes: Routes = [
     {
-        path: '',
+        path: '',           // route: /
         component: TransmutatorComponent
     },
     {
-        path: 'configure',
+        path: 'configure',  // route: /configure
         component: ConfigureComponent
     }
 ];

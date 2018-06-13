@@ -40,20 +40,6 @@ describe('HelperService', () => {
             expect(wrapper).toThrowError('Entered number cannot exceed the System Limit');
         });
 
-        it('should throw an error if the input is bigger than the user limit', () => {
-            // Setup
-            const INPUT = '1000';
-            const LIMIT = 999;
-            serviceInstance.limit = LIMIT;
-            // Act
-            const wrapper = () => {
-                serviceInstance.parseInput(INPUT);
-            };
-            // Assert
-            expect(wrapper).toThrow();
-            expect(wrapper).toThrowError('The number exceeds the user-defined limit');
-        });
-
         it('should parse negative inputs', () => {
             // Setup
             let input = '-5';

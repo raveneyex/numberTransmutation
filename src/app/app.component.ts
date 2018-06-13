@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
+// Declare component as <app-root>
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'Number Transmutation v0.1';
-}
+// Basic Empty Controller
+export class AppComponent { }

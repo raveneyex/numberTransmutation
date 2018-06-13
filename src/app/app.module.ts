@@ -9,17 +9,18 @@ import { AppRoutes } from './app.routes';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TransmutatorComponent,
-    ConfigureComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutes
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [              // Components to use.
+        AppComponent,
+        TransmutatorComponent,
+        ConfigureComponent
+    ],
+    imports: [                  // Modules for the App
+        BrowserModule,
+        FormsModule,
+        AppRoutes
+    ],
+    providers: [],              // No app-wide Services
+    bootstrap: [AppComponent]   // App entry component
 })
+// No Logic Needed.
 export class AppModule { }
