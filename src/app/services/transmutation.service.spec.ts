@@ -102,11 +102,13 @@ describe('TransmutationService', () => {
         });
 
         it('should reject any input superior to the system limit', () => {
+            // Setup
             const huge = Number.MAX_SAFE_INTEGER + 1; // Warning: unstable operation
+            // Act
             const wrapper = () => {
                 serviceInstance.transmutate(huge);
             };
-
+            // Assert
             expect(wrapper).toThrow();
             expect(wrapper).toThrowError('Entered number cannot exceed the System Limit');
         });
